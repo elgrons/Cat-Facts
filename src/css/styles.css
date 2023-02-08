@@ -1,3 +1,16 @@
 body {
-  background-color: lightblue;
+  background-color: thistle;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 10%;
+  text-align: center;
+}
+
+img {
+  width: 65%;
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
 }

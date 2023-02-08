@@ -1,34 +1,45 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import CatFacts from './js/catfacts.js';
+// import CatFacts from './js/catfacts.js';
 
 //Business Logic
 
-async function getFacts(number) {
-  const response = await CatFacts.getFacts(number);
-  if (response.data[0]) {
-    printFacts(response, number);
-  } else {
-    // printError(response, number);
-  }
+function getFacts(number) {
+  let request = new XMLHttpRequest();
+  const url = `https://meowfacts.herokuapp.com/?count=${number}`;
+
+  request.addEventListener("loadend", function() {
+    const response = JSON.parse(this.responseText);
+    if (this.status === 200) {
+      printElements(response, number);
+    } else {
+      printError(this, response, number);
+    }
+  });
+
+  request.open("GET", url, true);
+  request.send();
+}
+// UI Logic
+
+function printElements(response, number) {
+  document.querySelector('#show-cat-facts').innerText = `meow meow meow. Here's ${number} facts: ${response.data}`;
 }
 
-//UI Logic
-function printFacts(response, number) {
-  document.getElementById("show-cat-facts").innerText = `meow meow meow. Here's ${number} facts:
-  ${response}`;
+function printError(request) {
+  document.querySelector('#showResponse').innerText = `hiss hiss! There was an error accessing your cat facts ${request.status} ${request.statusText}`;
 }
 
-// function printError(error, number) {
-
-// }
-
-function handleFormSubmission() {
-  const number = document.getElementById("number-input").value;
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const number = document.querySelector('#number-input').value;
+  document.querySelector('#number-input').value = null;
   getFacts(number);
 }
 
 window.addEventListener("load", function() {
-document.getElementById("cat-facts-button").addEventListener("click", handleFormSubmission);
+  document.querySelector("#cat-facts-form").addEventListener("submit", handleFormSubmission);
 });
+
+
