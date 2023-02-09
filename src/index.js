@@ -20,9 +20,8 @@ function getFacts(number, language) {
 
 function printElements(response) {
   let div = document.querySelector('#show-cat-facts');
-  div.innerHTML = null; // resets form
+  div.innerHTML = null;
   let ul = document.createElement("ul");
-  // response.data is the array from our API, doesn't need the ${}
   response.data.forEach(function(fact) {
     let li = document.createElement("li");
     li.append(fact);
