@@ -39,7 +39,8 @@ An API focused website that generates cat facts for users made during Week 6 at 
 
 ## Known Bugs
 
-* _Any known issues_
+* If a negative number is entered in the form input all available facts will be listed.
+
 * Please reach out to Eliot, Luckie, or Sarah with any questions or concerns at: eliot.lauren@gmail.com, eluckie.d@gmail.com, sarah.andyshak@gmail.com
 
 ## License

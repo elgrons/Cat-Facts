@@ -46,5 +46,3 @@ function handleFormSubmission(event) {
 window.addEventListener("load", function() {
   document.querySelector("#cat-facts-form").addEventListener("submit", handleFormSubmission);
 });
-
-
