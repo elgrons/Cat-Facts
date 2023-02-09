@@ -31,9 +31,16 @@ function printError() {
 
 function handleFormSubmission(event) {
   event.preventDefault();
+  document.getElementById("inputError").setAttribute("class", "hidden");
   const number = document.querySelector('#number-input').value;
-  document.querySelector('#number-input').value = null;
-  getFacts(number);
+
+  if (!number) {
+    document.getElementById("inputError").removeAttribute("class");
+  } else {
+    document.querySelector('#number-input').value = null;
+    document.getElementById("inputError").setAttribute("class", "hidden");
+    getFacts(number);
+  }
 }
 
 window.addEventListener("load", function() {

@@ -7,7 +7,6 @@
 
 - update to use fetch? on a branch with second API call
 
-- BUGFIX: no number entered still returning a fact
 - BUGFIX: get printError function to work
 
 - Integrate https://http.cat/ ??

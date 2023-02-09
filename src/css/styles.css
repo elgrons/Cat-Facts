@@ -14,3 +14,11 @@ img {
 h1 {
   text-align: center;
 }
+
+.hidden {
+  display: none;
+}
+
+#inputError {
+  color: crimson;
+}
