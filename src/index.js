@@ -1,24 +1,21 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-// import CatFacts from './js/catfacts.js';
+import CatFactsService from './js/CatFactsService';
 
 //Business Logic
 
 function getFacts(number) {
-  let request = new XMLHttpRequest();
-  const url = `https://meowfacts.herokuapp.com/?count=${number}`;
-  request.addEventListener("loadend", function() {
-    const response = JSON.parse(this.responseText);
-    if (this.status === 200) {
-      printElements(response, number);
-    } else if (this.status === 404) {
-      printError();
-    }
-  });
-  request.open("GET", url, true);
-  request.send();
+  CatFactsService.getFacts(number)
+    .then(function(response) {
+      if(response.data) {
+        printElements(response, number);
+      } else {
+        printError();
+      }
+    });
 }
+
 // UI Logic
 
 function printElements(response, number) {
