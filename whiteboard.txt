@@ -1,6 +1,3 @@
-
-- put cat facts on their own lines (cat instead of bullet points????!!)
-
 - add a secondary API w/ a key
 
 - Integrate https://http.cat/ ??

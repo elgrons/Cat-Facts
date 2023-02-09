@@ -20,14 +20,13 @@ function getFacts(number, language) {
 
 function printElements(response) {
   let div = document.querySelector('#show-cat-facts');
+  div.innerHTML = null; // resets form
   let ul = document.createElement("ul");
-  const kitty = `${response.data}`;
-  const kittyArray = Array.from(kitty);
-  kittyArray.forEach(function() {
+  // response.data is the array from our API, doesn't need the ${}
+  response.data.forEach(function(fact) {
     let li = document.createElement("li");
-    li.append(kitty);
+    li.append(fact);
     ul.append(li);
-    console.log(ul);
   });
   div.append(ul);
 }
