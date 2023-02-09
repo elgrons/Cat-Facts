@@ -1,13 +1,7 @@
 
 - put cat facts on their own lines (cat instead of bullet points????!!)
 
-- update function to static method
-
 - add a secondary API w/ a key
-
-- update to use fetch? on a branch with second API call
-
-- BUGFIX: get printError function to work
 
 - Integrate https://http.cat/ ??
 

@@ -1,6 +1,6 @@
 export default class CatFactsService {
-  static getFacts(number) {
-    return fetch(`https://meowfacts.herokuapp.com/?count=${number}`)
+  static getFacts(number, language) {
+    return fetch(`https://meowfacts.herokuapp.com/?count=${number}&lang=${language}`)
       .then(function(response) {
         if (!response.ok) {
           const errorMessage = `hiss hiss! There was an error accessing your cat facts`;
