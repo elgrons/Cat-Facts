@@ -5,8 +5,6 @@
 
 - Integrate https://http.cat/ ??
 
-- Add different languages
-
 --Add Petfinder API?
   -eliot has a key under her gmail
 

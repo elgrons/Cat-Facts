@@ -9,7 +9,7 @@ function getFacts(number, language) {
   CatFactsService.getFacts(number, language)
     .then(function(response) {
       if(response.data) {
-        printElements(response, number);
+        printElements(response);
       } else {
         printError();
       }
@@ -18,8 +18,18 @@ function getFacts(number, language) {
 
 // UI Logic
 
-function printElements(response, number) {
-  document.querySelector('#show-cat-facts').innerText = `meow meow meow! 🐱${number} ${response.data}`;
+function printElements(response) {
+  let div = document.querySelector('#show-cat-facts');
+  let ul = document.createElement("ul");
+  const kitty = `${response.data}`;
+  const kittyArray = Array.from(kitty);
+  kittyArray.forEach(function() {
+    let li = document.createElement("li");
+    li.append(kitty);
+    ul.append(li);
+    console.log(ul);
+  });
+  div.append(ul);
 }
 
 function printError() {
