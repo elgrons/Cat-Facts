@@ -8,27 +8,25 @@ import './css/styles.css';
 function getFacts(number) {
   let request = new XMLHttpRequest();
   const url = `https://meowfacts.herokuapp.com/?count=${number}`;
-
   request.addEventListener("loadend", function() {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
       printElements(response, number);
-    } else {
-      printError(this, response, number);
+    } else if (this.status === 404) {
+      printError();
     }
   });
-
   request.open("GET", url, true);
   request.send();
 }
 // UI Logic
 
 function printElements(response, number) {
-  document.querySelector('#show-cat-facts').innerText = `meow meow meow. Here's ${number} facts: ${response.data}`;
+  document.querySelector('#show-cat-facts').innerText = `meow meow meow! Here's ${number} facts: ${response.data}`;
 }
 
-function printError(request) {
-  document.querySelector('#showResponse').innerText = `hiss hiss! There was an error accessing your cat facts ${request.status} ${request.statusText}`;
+function printError() {
+  document.querySelector('#showResponse').innerText = `hiss hiss! There was an error accessing your cat facts`;
 }
 
 function handleFormSubmission(event) {

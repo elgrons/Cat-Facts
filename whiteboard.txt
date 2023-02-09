@@ -12,3 +12,10 @@
 
 - Integrate https://http.cat/ ??
 
+- Add different languages
+
+--Add Petfinder API?
+  -eliot has a key under her gmail
+
+  go to https://www.petfinder.com/developers/v2/docs/
+  sign up or log in for an account with your email address
